@@ -1,0 +1,104 @@
+body
+{
+    background-image: url("images/rhomb-light-gray-pattern.png");
+    margin-top: 100px;
+}
+
+label{
+    display: inline-block;
+    width: 35%;
+    text-align: left;
+    margin-left: 5px;
+    font-size: 14px;
+    font-family: Arial;
+    color: darkslategray;
+}
+
+input {
+    text-align: left;
+    width: 59%;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    border-width: 1px;
+    border-color: black;
+
+}
+
+button{
+    float: right;
+    margin-right: 8px;
+    margin-bottom: 15px;
+}
+
+.signup button{
+    margin-top: 7px;
+
+}
+.signup p{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font: bold 20px Arial;
+    color: red;
+}
+
+.signup select{
+    width: 60%;
+    margin-right: 5px;
+    border-width: 1px;
+    border-color: black;
+}
+
+
+#container{
+    width: 610px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo{
+    width: 340px;
+    height: 396px;
+    float: left;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-image: url("images/wimage.png")
+}
+
+.login{
+    background-color:whitesmoke;
+    width: 250px;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    float: right;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding-top: 6px;
+}
+
+.signup{
+    background-color:ghostwhite;
+    width: 250px;
+    height: 296px;
+    float: right;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+#error1label {
+	color: red;
+	margin-top: 10px;
+	font-size: smaller;
+	width: 75%;
+}
+#error2label {
+	color: red;
+	margin-top: 10px;
+	font-size: smaller;
+	width: 69%;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="client.css" type="text/css" rel="stylesheet">
+	<script src="client.js" type="text/javascript"></script>
+	<script src="serverstub.js" type="text/javascript"></script>
+	
+    <title>Twidder</title>
+    <script type=”text/view” id="welcomeView">
+    <div id="container">
+        <div class="logo">
+        </div>
+        <div class="login">
+            <form name="loginform" onsubmit="validateLogIn();return false;">
+                <label>Email</label><input type="text" id="email" onchange="changed(this);return false;">
+                <label>Password</label><input type="password" id="password" onchange="changed(this);return false;"><br>
+                <label id="error1label"></label><button type="submit">Login</button><br>
+            </form>
+        </div>
+        <div class="signup">
+            <p> Sign Up Here</p>
+            <form name="signupform" onsubmit="validateSignUp();return false;">
+                <label>First Name</label><input type="text" id="firstname" onchange="changed(this);return false;"><br>
+                <label>Family Name</label><input type="text" id="familyname"  onchange="changed(this);return false;"><br>
+                <label>Gender</label><select id="gender">
+                                        <option value="male" selected>Male</option>
+                                        <option value="female">Female</option>
+                                     </select><br>
+                <label>City</label><input type="text" id="city" onchange="changed(this);return false;"><br>
+                <label>Country</label><input type="text" id="country" onchange="changed(this);return false;"><br>
+                <label>Email</label><input type="text" id="email" onchange="changed(this);return false;"><br>
+                <label>Password</label><input type="password" id="password" onchange="changed(this);return false;"><br>
+                <label>Repeat PSW</label><input type="password" id="rptpassword" onchange="changed(this);return false;"><br>
+                <label id="error2label"></label><button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    </script>
+    <script type=”text/view” id="profileView">
+    	<p>Profile View!</p>
+    </script>
+</head>
+<body onload="load()">
+	<div id="main"></div>
+</body>
+</html>
