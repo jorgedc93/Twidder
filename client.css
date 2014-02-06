@@ -102,3 +102,34 @@ button{
 	font-size: smaller;
 	width: 69%;
 }
+
+#tabs { 
+	font-family:"Century Gothic", "HelveticaNeueLT Pro 45 Lt", sans-serif;
+	padding: 0px;
+	min-width: 800px;
+}
+#tabs li {
+	display: inline;
+}
+#tabs li p {
+	text-decoration: none;
+	float:left;
+	padding: 10px;
+	background-color: white;
+	color: rgba(89,116,227,1);
+}
+#content {
+	clear: left;
+	background-color: white;
+	margin-top: 0px;
+	padding:0px;
+	margin-left: auto;
+	margin-right:auto;
+	min-width:800px;
+	min-height:600px;
+	text-align
+}
+#home_tab p {
+	background-color: blue;
+	color: white;
+}

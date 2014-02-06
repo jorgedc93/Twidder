@@ -165,3 +165,32 @@ function changed(name)
 	}
 	document.getElementById(tag).innerHTML="";
 }
+function select_tab(name)
+{
+	if(name=="home_tab")
+	{
+		document.getElementById("home_tab").style.display="block";
+		document.getElementById("browse_tab").style.display="none";
+		document.getElementById("account_tab").style.display="none";
+		document.getElementById("wrapper").innerHTML="<h1>Home</h1>";
+		
+	}
+	else if(name=="browse_tab")
+	{
+		document.getElementById("home_tab").style.display="none";
+		document.getElementById("browse_tab").style.display="block";
+		document.getElementById("account_tab").style.display="none";	
+	}
+	else if(name=="account_tab")
+	{
+		document.getElementById("home_tab").style.display="none";
+		document.getElementById("browse_tab").style.display="none";
+		document.getElementById("account_tab").style.display="block";
+	}
+}
+function prueba(name)
+{
+	var text = "Home";
+	document.getElementById("content").innerHTML="<h1>" + text + "</h1>";
+	document.getElementById("text1").style.backgroundColor="blue";
+}
