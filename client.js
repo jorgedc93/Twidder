@@ -15,13 +15,13 @@ function validateLogIn() {
 
     var mail2=document.loginform.email.value;
     if(mail2==null || mail2=="") {
-        document.logIn.email.style.borderColor="red";
+        document.loginform.email.style.borderColor="red";
         correct = false;
     }
 
     var pass2=document.loginform.password.value;
     if(pass2==null || pass2=="") {
-        document.logIn.password.style.borderColor="red";
+        document.loginform.password.style.borderColor="red";
         correct = false;
     }
     
@@ -30,10 +30,10 @@ function validateLogIn() {
 	 	{
 	 		//Try to log in the user
 	 		var user = serverstub.signIn(mail2, pass2);
-	 		if(user.success=="true")
+	 		if(user.success==true)
 		 	{
 		 		// Store token for the signed-in user
-		 		localStorage.setItem("token", user.data);
+		 		localStorage.setItem("user_token", user.data);
 		 		document.getElementById("main").innerHTML = document.getElementById("profileView").innerHTML;
 		 		console.log("Signed in correctly");
 		 	} else {
@@ -58,46 +58,46 @@ function validateSignUp() {
 
     var firstName=document.signupform.firstname.value;
     if(firstName==null || firstName=="") {
-        document.signUp.firstname.style.borderColor="red";
+        document.signupform.firstname.style.borderColor="red";
         correct = false;
     }
 
     var familyName=document.signupform.familyname.value;
     if(familyName==null || familyName=="") {
-        document.signUp.familyname.style.borderColor="red";
+        document.signupform.familyname.style.borderColor="red";
         correct = false;
     }
 
     var city=document.signupform.city.value;
     if(city==null || city=="") {
-        document.signUp.city.style.borderColor="red";
+        document.signupform.city.style.borderColor="red";
         correct = false;
     }
 
     var country=document.signupform.country.value;
     if(country==null || country=="") {
-        document.signUp.country.style.borderColor="red";
+        document.signupform.country.style.borderColor="red";
         correct = false;
     }
 
-    var mail1=document.signupform.email.value;
-    if(mail1==null || mail1=="") {
-        document.signUp.email.style.borderColor="red";
+    var mail=document.signupform.email.value;
+    if(mail==null || mail=="") {
+        document.signupform.email.style.borderColor="red";
         correct = false;
     }
 
-    var pass1=document.signupform.password.value;
-    if(pass1==null || pass1=="") {
-        document.signUp.password.style.borderColor="red";
+    var pass=document.signupform.password.value;
+    if(pass==null || pass=="") {
+        document.signupform.password.style.borderColor="red";
         correct = false;
     }
     var rptPassword=document.signupform.rptpassword.value;
     if(rptPassword==null || rptPassword=="") {
-        document.signUp.rptpassword.style.borderColor="red";
+        document.signupform.rptpassword.style.borderColor="red";
         correct = false;
     }
 
-    if (pass1 != rptPassword) {
+    if (pass != rptPassword) {
         document.signupform.password.style.borderColor="red";
         document.signupform.password.value="";
         document.signupform.rptpassword.style.borderColor="red";
@@ -107,12 +107,32 @@ function validateSignUp() {
     }
 
     if(correct) {
-		var answer = serverstub.signUp(document.signupform);
-		if (answer.success == "true") {
+		var formData = {"email": document.signupform.email.value,
+				"password": document.signupform.password.value,
+                "firstname": document.signupform.firstname.value,
+                "familyname": document.signupform.familyname.value,
+                "gender": document.signupform.gender.value,
+                "city": document.signupform.city.value,
+                "country": document.signupform.country.value};
+		var answer = serverstub.signUp(formData);
+		if(answer.success==true) {
+			var form = document.signupform
+			for(i=0;i<form.elements.length;i++)
+			{
+				if(form.elements[i].tagName == "INPUT") {
+					form.elements[i].value = "";
+				} else {
+					continue;
+				}
+			}
 			document.getElementById("error2label").innerHTML=answer.message;
-        } else {
-	        document.getElementById("error2label").innerHTML=answer.message;
-        }
+		} else {
+			if(answer.message=="User already exists.") {
+				document.signupform.email.style.borderColor="red";
+				
+			}
+			document.getElementById("error2label").innerHTML=answer.message;
+		}
     }
 }
 
